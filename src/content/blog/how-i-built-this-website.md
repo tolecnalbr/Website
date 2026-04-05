@@ -16,13 +16,16 @@ I watched [this video by Cole Medin](https://www.youtube.com/watch?v=B6k_vAjndMo
 For those who want the short version:
 
 1. Install [Claude Code](https://claude.ai/code)
-2. Open it and describe what you want
-3. Let it ask you questions, answer them honestly
-4. Iterate - say what you like, what you don't
+2. Set it up in VS Code - the [video](https://www.youtube.com/watch?v=B6k_vAjndMo) walks you through it in the first few minutes
+3. Open it and describe what you want
+4. Let it ask you questions, answer them honestly
+5. Iterate - say what you like, what you don't
 
 Tech-wise, Claude suggested [Astro](https://astro.build/) as a framework and [GitHub Pages](https://pages.github.com/) for hosting. Both free. I didn't know what either of those were before today.
 
 That's it. The rest is a conversation.
+
+![Building the website with Claude Code in VS Code](/Website/blog-screenshot.png)
 
 ## What surprised me
 
