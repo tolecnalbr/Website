@@ -1,150 +1,134 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 48" width="96" height="144">
-  <!-- Pixel art knight with pickaxe - 16-bit retro style -->
-  <!-- Each "pixel" is a 1x1 rect -->
+  <!-- Pixel art farmer with pickaxe - facing left -->
 
-  <!-- === PICKAXE (held in right hand, viewer's left) === -->
-  <!-- Handle (diagonal) -->
-  <rect x="3" y="12" width="1" height="1" fill="#6B3410"/>
-  <rect x="4" y="13" width="1" height="1" fill="#6B3410"/>
-  <rect x="5" y="14" width="1" height="1" fill="#8B4513"/>
-  <rect x="6" y="15" width="1" height="1" fill="#8B4513"/>
-  <rect x="7" y="16" width="1" height="1" fill="#8B4513"/>
-  <rect x="8" y="17" width="1" height="1" fill="#8B4513"/>
-  <rect x="9" y="18" width="1" height="1" fill="#8B4513"/>
-  <rect x="10" y="19" width="1" height="1" fill="#6B3410"/>
-  <!-- Pickaxe head -->
-  <rect x="1" y="10" width="1" height="1" fill="#888888"/>
-  <rect x="2" y="11" width="1" height="1" fill="#aaaaaa"/>
-  <rect x="3" y="11" width="1" height="1" fill="#999999"/>
-  <rect x="1" y="11" width="1" height="1" fill="#777777"/>
-  <rect x="0" y="10" width="1" height="1" fill="#777777"/>
-  <rect x="4" y="11" width="1" height="1" fill="#888888"/>
-  <rect x="5" y="12" width="1" height="1" fill="#888888"/>
-  <rect x="0" y="9" width="1" height="1" fill="#666666"/>
-  <rect x="1" y="9" width="1" height="1" fill="#aaaaaa"/>
-  <rect x="2" y="10" width="1" height="1" fill="#aaaaaa"/>
-  <rect x="5" y="13" width="1" height="1" fill="#777777"/>
-  <!-- Pickaxe tip -->
-  <rect x="6" y="13" width="1" height="1" fill="#666666"/>
+  <!-- === HAT === -->
+  <!-- Hat brim -->
+  <rect x="6" y="3" width="14" height="1" fill="#C4983E"/>
+  <rect x="5" y="4" width="16" height="1" fill="#D4A857"/>
+  <!-- Hat crown -->
+  <rect x="9" y="0" width="8" height="1" fill="#C4983E"/>
+  <rect x="8" y="1" width="10" height="1" fill="#D4A857"/>
+  <rect x="8" y="2" width="10" height="1" fill="#D4A857"/>
+  <rect x="7" y="3" width="12" height="1" fill="#C4983E"/>
+  <!-- Hat band -->
+  <rect x="8" y="3" width="10" height="1" fill="#8B6914"/>
 
-  <!-- === HELMET === -->
-  <!-- Helmet top -->
-  <rect x="13" y="0" width="6" height="1" fill="#b0b0b0"/>
-  <rect x="12" y="1" width="8" height="1" fill="#b0b0b0"/>
-  <!-- Helmet sides -->
-  <rect x="11" y="2" width="1" height="3" fill="#8a8a8a"/>
-  <rect x="20" y="2" width="1" height="3" fill="#8a8a8a"/>
-  <!-- Helmet face area -->
-  <rect x="12" y="2" width="8" height="1" fill="#d0d0d0"/>
-  <rect x="12" y="3" width="8" height="1" fill="#b0b0b0"/>
-  <!-- Visor slit -->
-  <rect x="13" y="4" width="6" height="1" fill="#1a1a1a"/>
-  <!-- Visor highlight -->
-  <rect x="14" y="4" width="2" height="1" fill="#3a3a5a"/>
-  <!-- Helmet bottom / chin guard -->
-  <rect x="12" y="5" width="8" height="1" fill="#8a8a8a"/>
-  <rect x="13" y="6" width="6" height="1" fill="#8a8a8a"/>
-  <!-- Helmet plume/crest -->
-  <rect x="15" y="0" width="2" height="1" fill="#d0d0d0"/>
-  <!-- Dark outline top -->
-  <rect x="12" y="0" width="1" height="1" fill="#1a1a1a"/>
-  <rect x="19" y="0" width="1" height="1" fill="#1a1a1a"/>
+  <!-- === HAIR (under hat) === -->
+  <rect x="8" y="5" width="1" height="2" fill="#2C1810"/>
+  <rect x="17" y="5" width="1" height="2" fill="#2C1810"/>
+  <rect x="8" y="7" width="1" height="1" fill="#2C1810"/>
+  <rect x="17" y="7" width="1" height="1" fill="#2C1810"/>
 
-  <!-- === SHOULDER PAULDRONS === -->
-  <!-- Left pauldron (viewer's left) -->
-  <rect x="9" y="7" width="3" height="2" fill="#b0b0b0"/>
-  <rect x="9" y="7" width="3" height="1" fill="#d0d0d0"/>
-  <rect x="8" y="8" width="1" height="1" fill="#8a8a8a"/>
-  <!-- Right pauldron -->
-  <rect x="20" y="7" width="3" height="2" fill="#b0b0b0"/>
-  <rect x="20" y="7" width="3" height="1" fill="#d0d0d0"/>
-  <rect x="23" y="8" width="1" height="1" fill="#8a8a8a"/>
+  <!-- === FACE === -->
+  <rect x="9" y="5" width="8" height="1" fill="#E8B88A"/>
+  <rect x="9" y="6" width="8" height="1" fill="#E8B88A"/>
+  <rect x="9" y="7" width="8" height="1" fill="#E8B88A"/>
+  <rect x="9" y="8" width="8" height="1" fill="#E8B88A"/>
+  <rect x="10" y="9" width="6" height="1" fill="#E8B88A"/>
+  <!-- Eyes -->
+  <rect x="10" y="6" width="2" height="1" fill="#1a1a1a"/>
+  <rect x="14" y="6" width="2" height="1" fill="#1a1a1a"/>
+  <!-- Smile -->
+  <rect x="11" y="8" width="4" height="1" fill="#C4946A"/>
 
-  <!-- === TORSO / PLATE ARMOR === -->
-  <rect x="12" y="7" width="8" height="2" fill="#b0b0b0"/>
-  <rect x="11" y="9" width="10" height="2" fill="#8a8a8a"/>
-  <rect x="11" y="11" width="10" height="2" fill="#b0b0b0"/>
-  <rect x="11" y="13" width="10" height="1" fill="#8a8a8a"/>
-  <!-- Chest detail / armor line -->
-  <rect x="15" y="8" width="2" height="3" fill="#d0d0d0"/>
-  <rect x="16" y="7" width="1" height="1" fill="#d0d0d0"/>
-  <!-- Armor shadow -->
-  <rect x="12" y="9" width="1" height="2" fill="#777777"/>
-  <rect x="20" y="9" width="1" height="2" fill="#777777"/>
+  <!-- === HAY STRAW in mouth === -->
+  <!-- Straw sticking out to the left (facing direction) -->
+  <rect x="4" y="8" width="1" height="1" fill="#D4A857"/>
+  <rect x="5" y="8" width="1" height="1" fill="#D4A857"/>
+  <rect x="6" y="8" width="1" height="1" fill="#C4983E"/>
+  <rect x="7" y="8" width="1" height="1" fill="#C4983E"/>
+  <rect x="8" y="8" width="1" height="1" fill="#C4983E"/>
+  <rect x="9" y="8" width="1" height="1" fill="#D4A857"/>
+
+  <!-- === NECK === -->
+  <rect x="12" y="10" width="2" height="1" fill="#E8B88A"/>
+
+  <!-- === SHIRT (yellow) === -->
+  <rect x="10" y="11" width="6" height="1" fill="#E8C840"/>
+  <rect x="10" y="12" width="6" height="1" fill="#D4B030"/>
+  <!-- Shirt visible at shoulders above overalls -->
+  <rect x="8" y="11" width="2" height="1" fill="#E8C840"/>
+  <rect x="16" y="11" width="2" height="1" fill="#E8C840"/>
+
+  <!-- === OVERALLS (blue) === -->
+  <!-- Straps -->
+  <rect x="10" y="12" width="2" height="1" fill="#4466AA"/>
+  <rect x="14" y="12" width="2" height="1" fill="#4466AA"/>
+  <!-- Bib -->
+  <rect x="10" y="13" width="6" height="1" fill="#4466AA"/>
+  <!-- Body of overalls -->
+  <rect x="9" y="14" width="8" height="1" fill="#4466AA"/>
+  <rect x="9" y="15" width="8" height="1" fill="#3355AA"/>
+  <rect x="9" y="16" width="8" height="1" fill="#4466AA"/>
+  <rect x="9" y="17" width="8" height="1" fill="#3355AA"/>
+  <!-- Overall pocket -->
+  <rect x="11" y="14" width="3" height="2" fill="#3355AA"/>
+  <rect x="12" y="14" width="1" height="1" fill="#2244AA"/>
+  <!-- Overall buttons -->
+  <rect x="10" y="13" width="1" height="1" fill="#D4B030"/>
+  <rect x="15" y="13" width="1" height="1" fill="#D4B030"/>
 
   <!-- === ARMS === -->
-  <!-- Left arm (viewer's left, holding pickaxe) -->
-  <rect x="9" y="9" width="2" height="2" fill="#8a8a8a"/>
-  <rect x="9" y="11" width="2" height="3" fill="#b0b0b0"/>
-  <rect x="10" y="14" width="2" height="2" fill="#8a8a8a"/>
-  <!-- Gauntlet -->
-  <rect x="10" y="16" width="2" height="2" fill="#777777"/>
-  <rect x="10" y="18" width="2" height="1" fill="#8a8a8a"/>
+  <!-- Left arm (viewer's left, farmer's right - holds pickaxe) -->
+  <rect x="7" y="12" width="2" height="1" fill="#E8C840"/>
+  <rect x="6" y="13" width="2" height="1" fill="#E8C840"/>
+  <rect x="5" y="14" width="2" height="2" fill="#E8C840"/>
+  <!-- Left hand -->
+  <rect x="5" y="16" width="2" height="1" fill="#E8B88A"/>
+  <rect x="5" y="17" width="2" height="1" fill="#E8B88A"/>
+
   <!-- Right arm -->
-  <rect x="21" y="9" width="2" height="2" fill="#8a8a8a"/>
-  <rect x="21" y="11" width="2" height="3" fill="#b0b0b0"/>
-  <rect x="21" y="14" width="2" height="2" fill="#8a8a8a"/>
-  <!-- Right gauntlet -->
-  <rect x="21" y="16" width="2" height="2" fill="#777777"/>
+  <rect x="17" y="12" width="2" height="1" fill="#E8C840"/>
+  <rect x="18" y="13" width="2" height="2" fill="#E8C840"/>
+  <!-- Right hand -->
+  <rect x="18" y="15" width="2" height="1" fill="#E8B88A"/>
 
-  <!-- === BELT === -->
-  <rect x="11" y="14" width="10" height="1" fill="#1a1a1a"/>
-  <rect x="15" y="14" width="2" height="1" fill="#8B4513"/>
-  <!-- Belt buckle -->
-  <rect x="15" y="14" width="2" height="1" fill="#b8860b"/>
+  <!-- === PICKAXE === -->
+  <!-- Handle (held at side, going up-left) -->
+  <rect x="5" y="18" width="1" height="1" fill="#8B4513"/>
+  <rect x="4" y="19" width="1" height="1" fill="#8B4513"/>
+  <rect x="4" y="20" width="1" height="1" fill="#6B3410"/>
+  <rect x="3" y="21" width="1" height="1" fill="#6B3410"/>
+  <rect x="3" y="22" width="1" height="1" fill="#8B4513"/>
+  <rect x="2" y="23" width="1" height="1" fill="#8B4513"/>
+  <rect x="2" y="24" width="1" height="1" fill="#6B3410"/>
+  <!-- Pickaxe head at bottom -->
+  <rect x="0" y="25" width="1" height="1" fill="#888888"/>
+  <rect x="1" y="25" width="1" height="1" fill="#AAAAAA"/>
+  <rect x="2" y="25" width="1" height="1" fill="#999999"/>
+  <rect x="3" y="25" width="1" height="1" fill="#AAAAAA"/>
+  <rect x="4" y="25" width="1" height="1" fill="#888888"/>
+  <rect x="0" y="26" width="1" height="1" fill="#777777"/>
+  <rect x="4" y="26" width="1" height="1" fill="#777777"/>
+  <!-- Pick tips -->
+  <rect x="0" y="24" width="1" height="1" fill="#666666"/>
+  <rect x="5" y="26" width="1" height="1" fill="#666666"/>
 
-  <!-- === CAPE (behind, accent color) === -->
-  <rect x="21" y="8" width="2" height="8" fill="#4a4a8a"/>
-  <rect x="22" y="16" width="2" height="6" fill="#4a4a8a"/>
-  <rect x="23" y="22" width="2" height="4" fill="#3a3a7a"/>
-  <rect x="22" y="22" width="1" height="2" fill="#4a4a8a"/>
-  <!-- Cape highlight -->
-  <rect x="21" y="9" width="1" height="4" fill="#5a5a9a"/>
-
-  <!-- === LEGS / TASSETS === -->
-  <!-- Tassets (armor skirt) -->
-  <rect x="11" y="15" width="10" height="2" fill="#8a8a8a"/>
-  <rect x="12" y="15" width="3" height="2" fill="#b0b0b0"/>
-  <rect x="17" y="15" width="3" height="2" fill="#b0b0b0"/>
-  <!-- Gap between legs -->
-  <rect x="15" y="17" width="2" height="1" fill="#1a1a1a"/>
-
-  <!-- Left leg -->
-  <rect x="11" y="17" width="4" height="2" fill="#8a8a8a"/>
-  <rect x="11" y="19" width="4" height="2" fill="#b0b0b0"/>
-  <rect x="11" y="21" width="4" height="2" fill="#8a8a8a"/>
-  <!-- Knee highlight -->
-  <rect x="12" y="19" width="2" height="1" fill="#d0d0d0"/>
+  <!-- === LEGS === -->
+  <!-- Left leg (id for animation) -->
+  <g id="leg-left">
+    <rect x="9" y="18" width="3" height="1" fill="#4466AA"/>
+    <rect x="9" y="19" width="3" height="1" fill="#3355AA"/>
+    <rect x="9" y="20" width="3" height="1" fill="#4466AA"/>
+    <rect x="9" y="21" width="3" height="1" fill="#3355AA"/>
+    <!-- Left boot -->
+    <rect x="8" y="22" width="4" height="1" fill="#555555"/>
+    <rect x="7" y="23" width="5" height="1" fill="#444444"/>
+    <rect x="7" y="24" width="5" height="1" fill="#333333"/>
+  </g>
 
   <!-- Right leg -->
-  <rect x="17" y="17" width="4" height="2" fill="#8a8a8a"/>
-  <rect x="17" y="19" width="4" height="2" fill="#b0b0b0"/>
-  <rect x="17" y="21" width="4" height="2" fill="#8a8a8a"/>
-  <!-- Knee highlight -->
-  <rect x="18" y="19" width="2" height="1" fill="#d0d0d0"/>
+  <g id="leg-right">
+    <rect x="14" y="18" width="3" height="1" fill="#4466AA"/>
+    <rect x="14" y="19" width="3" height="1" fill="#3355AA"/>
+    <rect x="14" y="20" width="3" height="1" fill="#4466AA"/>
+    <rect x="14" y="21" width="3" height="1" fill="#3355AA"/>
+    <!-- Right boot -->
+    <rect x="14" y="22" width="4" height="1" fill="#555555"/>
+    <rect x="14" y="23" width="5" height="1" fill="#444444"/>
+    <rect x="14" y="24" width="5" height="1" fill="#333333"/>
+  </g>
 
-  <!-- === BOOTS === -->
-  <!-- Left boot -->
-  <rect x="10" y="23" width="5" height="2" fill="#555555"/>
-  <rect x="10" y="25" width="5" height="2" fill="#444444"/>
-  <rect x="9" y="26" width="2" height="1" fill="#444444"/>
-  <!-- Boot sole -->
-  <rect x="9" y="27" width="6" height="1" fill="#333333"/>
-  <!-- Boot highlight -->
-  <rect x="11" y="23" width="1" height="2" fill="#666666"/>
-
-  <!-- Right boot -->
-  <rect x="17" y="23" width="5" height="2" fill="#555555"/>
-  <rect x="17" y="25" width="5" height="2" fill="#444444"/>
-  <rect x="21" y="26" width="2" height="1" fill="#444444"/>
-  <!-- Boot sole -->
-  <rect x="17" y="27" width="6" height="1" fill="#333333"/>
-  <!-- Boot highlight -->
-  <rect x="18" y="23" width="1" height="2" fill="#666666"/>
-
-  <!-- === DARK OUTLINE (selective edges) === -->
-  <rect x="11" y="1" width="1" height="1" fill="#1a1a1a"/>
-  <rect x="20" y="1" width="1" height="1" fill="#1a1a1a"/>
-  <rect x="10" y="5" width="2" height="1" fill="#1a1a1a"/>
-  <rect x="20" y="5" width="2" height="1" fill="#1a1a1a"/>
+  <!-- Gap between legs -->
+  <rect x="12" y="18" width="2" height="4" fill="#2244AA"/>
 </svg>
