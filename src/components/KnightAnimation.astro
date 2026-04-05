@@ -1,7 +1,34 @@
 <div id="knight-intro" class="knight-intro">
-  <div class="knight-stage">
-    <img id="knight" src="/knight-placeholder.svg" alt="" class="knight" />
-  </div>
+  <!-- Crack SVG overlay -->
+  <svg id="cracks" class="cracks" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+    <!-- Crack lines grow after each hit -->
+    <g id="crack-group-1" class="crack-group" opacity="0">
+      <line x1="200" y1="200" x2="180" y2="220" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="200" y1="200" x2="220" y2="215" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="200" y1="200" x2="195" y2="185" stroke="#1a1a1a" stroke-width="1"/>
+    </g>
+    <g id="crack-group-2" class="crack-group" opacity="0">
+      <line x1="180" y1="220" x2="155" y2="245" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="220" y1="215" x2="250" y2="240" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="195" y1="185" x2="175" y2="165" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="200" y1="200" x2="230" y2="185" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="200" y1="200" x2="185" y2="240" stroke="#1a1a1a" stroke-width="1"/>
+    </g>
+    <g id="crack-group-3" class="crack-group" opacity="0">
+      <line x1="155" y1="245" x2="120" y2="280" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="250" y1="240" x2="290" y2="270" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="175" y1="165" x2="140" y2="135" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="230" y1="185" x2="270" y2="155" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="185" y1="240" x2="170" y2="280" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="250" y1="240" x2="260" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="120" y1="280" x2="80" y2="320" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="290" y1="270" x2="340" y2="310" stroke="#1a1a1a" stroke-width="2"/>
+      <line x1="140" y1="135" x2="100" y2="100" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="270" y1="155" x2="320" y2="110" stroke="#1a1a1a" stroke-width="1.5"/>
+    </g>
+  </svg>
+  <!-- The knight -->
+  <img id="knight" src="/knight-placeholder.svg" alt="" class="knight" />
 </div>
 
 <style>
@@ -11,66 +38,214 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg, #fafafa);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
   }
 
-  .knight-intro.done {
-    transform: translateY(-100%);
+  .knight-intro.shaking {
+    animation: screenShake 0.15s ease-in-out;
+  }
+
+  .knight-intro.shaking2 {
+    animation: screenShake2 0.15s ease-in-out;
+  }
+
+  .knight-intro.shaking3 {
+    animation: screenShake3 0.2s ease-in-out;
+  }
+
+  /* Floor break: split into top and bottom halves */
+  .knight-intro.breaking {
+    animation: none;
+  }
+
+  .knight-intro.breaking::before,
+  .knight-intro.breaking::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-bg, #fafafa);
+    z-index: 1;
+  }
+
+  .knight-intro.breaking::before {
+    top: 0;
+    animation: fallTop 0.75s cubic-bezier(0.4, 0, 1, 1) forwards;
+    transform-origin: top left;
+  }
+
+  .knight-intro.breaking::after {
+    bottom: 0;
+    animation: fallBottom 0.75s cubic-bezier(0.4, 0, 1, 1) forwards;
+    transform-origin: bottom right;
+  }
+
+  .knight-intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .cracks {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
     pointer-events: none;
   }
 
+  .crack-group {
+    transition: opacity 0.1s ease;
+  }
+
   .knight {
-    width: 64px;
-    height: 64px;
+    width: 96px;
+    height: 144px;
     image-rendering: pixelated;
     position: absolute;
-    /* Start off-screen right */
-    right: -80px;
+    right: -120px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
+    transform-origin: center bottom;
   }
 
   .knight.walking {
-    animation: walkIn 2s ease-out forwards;
+    animation: walkIn 3.125s ease-out forwards;
   }
 
-  .knight.facing {
+  .knight.at-center {
     animation: none;
     right: auto;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%) scaleX(-1);
+    transform: translateX(-50%) translateY(-50%);
   }
 
-  .knight.jumping {
-    animation: jump 0.6s ease-in forwards;
+  .knight.swing {
     right: auto;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%) scaleX(-1);
+    animation: pickaxeSwing 0.625s ease-in-out;
+    transform-origin: 50% 100%;
+  }
+
+  .knight.swing1 {
+    right: auto;
+    left: 50%;
+    animation: pickaxeSwing 0.625s ease-in-out forwards;
+  }
+
+  .knight.swing2 {
+    right: auto;
+    left: 50%;
+    animation: pickaxeSwing 0.625s ease-in-out forwards;
+  }
+
+  .knight.swing3 {
+    right: auto;
+    left: 50%;
+    animation: pickaxeSwing 0.625s ease-in-out forwards;
+  }
+
+  .knight.falling {
+    right: auto;
+    left: 50%;
+    animation: knightFall 0.75s cubic-bezier(0.4, 0, 1, 1) forwards;
   }
 
   @keyframes walkIn {
     0% {
-      right: -80px;
+      right: -120px;
     }
     100% {
-      right: calc(50% - 32px);
+      right: calc(50% - 48px);
     }
   }
 
-  @keyframes jump {
+  @keyframes pickaxeSwing {
     0% {
-      transform: translateX(-50%) translateY(-50%) scaleX(-1);
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
     }
     40% {
-      transform: translateX(-50%) translateY(calc(-50% - 60px)) scaleX(-1);
+      transform: translateX(-50%) translateY(-50%) rotate(35deg);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-50%) rotate(35deg);
+    }
+    80% {
+      transform: translateX(-50%) translateY(-50%) rotate(-5deg);
     }
     100% {
-      transform: translateX(-50%) translateY(100vh) scaleX(-1);
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+  }
+
+  @keyframes screenShake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-3px, 2px); }
+    40% { transform: translate(3px, -2px); }
+    60% { transform: translate(-2px, 1px); }
+    80% { transform: translate(2px, -1px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes screenShake2 {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-5px, 3px); }
+    40% { transform: translate(4px, -3px); }
+    60% { transform: translate(-3px, 2px); }
+    80% { transform: translate(3px, -2px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes screenShake3 {
+    0% { transform: translate(0, 0); }
+    15% { transform: translate(-8px, 5px); }
+    30% { transform: translate(7px, -4px); }
+    45% { transform: translate(-5px, 3px); }
+    60% { transform: translate(4px, -3px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes knightFall {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(100vh) rotate(15deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fallTop {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) rotate(-8deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fallBottom {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(120vh) rotate(6deg);
+      opacity: 0;
     }
   }
 </style>
@@ -78,33 +253,79 @@
 <script>
   const knight = document.getElementById('knight');
   const intro = document.getElementById('knight-intro');
+  const cracks = document.getElementById('cracks');
 
   if (knight && intro) {
-    // Step 1: Knight walks in from right
+    // Step 1: Knight walks in from right (375ms delay, 3.125s walk)
     setTimeout(() => {
       knight.classList.add('walking');
-    }, 300);
+    }, 375);
 
-    // Step 2: Knight stops at center, turns to face user
+    // Step 2: Knight arrives at center (375 + 3125 = 3500ms)
     setTimeout(() => {
       knight.classList.remove('walking');
-      knight.classList.add('facing');
-    }, 2500);
+      knight.classList.add('at-center');
+    }, 3500);
 
-    // Step 3: Knight jumps
+    // Step 3a: First pickaxe swing + small crack + shake (4000ms)
     setTimeout(() => {
-      knight.classList.remove('facing');
-      knight.classList.add('jumping');
-    }, 3200);
+      knight.classList.remove('at-center');
+      knight.classList.add('swing1');
+    }, 4000);
 
-    // Step 4: Intro screen slides away, revealing content
     setTimeout(() => {
-      intro.classList.add('done');
-    }, 3600);
+      // Show first crack group
+      const cg1 = document.getElementById('crack-group-1');
+      if (cg1) cg1.setAttribute('opacity', '1');
+      // Screen shake
+      intro.classList.add('shaking');
+      setTimeout(() => intro.classList.remove('shaking'), 150);
+    }, 4250); // Impact at peak of swing
 
-    // Step 5: Remove intro element from DOM
+    // Step 3b: Second pickaxe swing + bigger crack + shake (4800ms)
+    setTimeout(() => {
+      knight.classList.remove('swing1');
+      // Force reflow to restart animation
+      void knight.offsetWidth;
+      knight.classList.add('swing2');
+    }, 4800);
+
+    setTimeout(() => {
+      const cg2 = document.getElementById('crack-group-2');
+      if (cg2) cg2.setAttribute('opacity', '1');
+      intro.classList.add('shaking2');
+      setTimeout(() => intro.classList.remove('shaking2'), 150);
+    }, 5050);
+
+    // Step 3c: Third pickaxe swing + floor shatters + shake (5600ms)
+    setTimeout(() => {
+      knight.classList.remove('swing2');
+      void knight.offsetWidth;
+      knight.classList.add('swing3');
+    }, 5600);
+
+    setTimeout(() => {
+      const cg3 = document.getElementById('crack-group-3');
+      if (cg3) cg3.setAttribute('opacity', '1');
+      intro.classList.add('shaking3');
+      setTimeout(() => intro.classList.remove('shaking3'), 200);
+    }, 5850);
+
+    // Step 4: Floor breaks apart + knight falls (6200ms)
+    setTimeout(() => {
+      knight.classList.remove('swing3');
+      knight.classList.add('falling');
+      if (cracks) cracks.style.display = 'none';
+      intro.classList.add('breaking');
+    }, 6200);
+
+    // Step 5: Remove intro from DOM (7500ms)
+    setTimeout(() => {
+      intro.classList.add('fade-out');
+    }, 7200);
+
     setTimeout(() => {
       intro.remove();
-    }, 4500);
+    }, 7500);
   }
 </script>
