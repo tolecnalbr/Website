@@ -5,7 +5,7 @@ date: 2026-04-05T18:00:00
 tags: ["ai", "building"]
 ---
 
-Before this afternoon, I knew absolutely nothing about how to build a website. This is not a tutorial. It's an invitation to try.
+Before this afternoon, <mark>I knew absolutely nothing about how to build a website... or about how to code.</mark> This is not a tutorial. It's an invitation to try.
 
 ## It started with a video
 

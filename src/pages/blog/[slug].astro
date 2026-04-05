@@ -118,6 +118,12 @@ const jsonLd = JSON.stringify({
     margin-bottom: 1.25rem;
   }
 
+  .prose :global(mark) {
+    background: linear-gradient(180deg, transparent 50%, rgba(255, 243, 0, 0.45) 50%, rgba(255, 243, 0, 0.45) 88%, transparent 88%);
+    color: inherit;
+    padding: 0 0.1em;
+  }
+
   .prose :global(code) {
     background: #f0f0f0;
     padding: 0.15em 0.35em;
