@@ -38,18 +38,20 @@ import quotes from '../content/recommendations/quotes.json';
         </ul>
       </section>
 
-      <section class="rec-section">
-        <h2>Movies</h2>
-        <ul class="rec-list">
-          {movies.map((m) => (
-            <li>
-              <span class="rec-title">{m.title}</span>
-              <span class="rec-meta">({m.year})</span>
-              {m.status === 'watched' && <span class="status-done">watched</span>}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {movies.length > 0 && (
+        <section class="rec-section">
+          <h2>Movies</h2>
+          <ul class="rec-list">
+            {movies.map((m) => (
+              <li>
+                <span class="rec-title">{m.title}</span>
+                <span class="rec-meta">({m.year})</span>
+                {m.status === 'watched' && <span class="status-done">watched</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </article>
   </main>
 </BaseLayout>
