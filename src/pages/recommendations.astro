@@ -6,7 +6,7 @@ import movies from '../content/recommendations/movies.json';
 import quotes from '../content/recommendations/quotes.json';
 ---
 
-<BaseLayout title="Recommendations — Lancelot" description="Books, movies, and quotes I recommend">
+<BaseLayout title="Recommendations - Lancelot" description="Books, movies, and quotes I recommend">
   <main id="main-content" class="container">
     <article class="page-content">
       <h1>Recommendations</h1>
@@ -17,7 +17,7 @@ import quotes from '../content/recommendations/quotes.json';
           {quotes.map((q) => (
             <li>
               <span class="quote-text">&ldquo;{q.text}&rdquo;</span>
-              <span class="quote-dash">&mdash;</span>
+              <span class="quote-dash">-</span>
               <span class="rec-meta">{q.author}</span>
             </li>
           ))}
