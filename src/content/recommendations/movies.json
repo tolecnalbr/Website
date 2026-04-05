@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Ex Machina",
+    "year": 2014,
+    "status": "watched",
+    "rating": 4,
+    "comment": "Beautiful and unsettling."
+  },
+  {
+    "title": "Her",
+    "year": 2013,
+    "status": "to-watch",
+    "rating": null,
+    "comment": null
+  }
+]

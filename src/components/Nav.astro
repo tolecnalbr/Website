@@ -1,17 +1,19 @@
 ---
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/questions', label: 'Questions' },
+  { href: base, label: 'Home' },
+  { href: `${base}blog`, label: 'Blog' },
+  { href: `${base}about`, label: 'About' },
+  { href: `${base}questions`, label: 'Questions' },
+  { href: `${base}recommendations`, label: 'Recommendations' },
 ];
 ---
 
 <nav>
   <div class="nav-inner container">
-    <a href="/" class="nav-logo">Lancelot</a>
+    <a href={base} class="nav-logo">Lancelot</a>
     <ul class="nav-links">
       {links.map(link => (
         <li>
