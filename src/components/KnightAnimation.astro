@@ -1,0 +1,110 @@
+<div id="knight-intro" class="knight-intro">
+  <div class="knight-stage">
+    <img id="knight" src="/knight-placeholder.svg" alt="" class="knight" />
+  </div>
+</div>
+
+<style>
+  .knight-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .knight-intro.done {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  .knight {
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+    position: absolute;
+    /* Start off-screen right */
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .knight.walking {
+    animation: walkIn 2s ease-out forwards;
+  }
+
+  .knight.facing {
+    animation: none;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scaleX(-1);
+  }
+
+  .knight.jumping {
+    animation: jump 0.6s ease-in forwards;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scaleX(-1);
+  }
+
+  @keyframes walkIn {
+    0% {
+      right: -80px;
+    }
+    100% {
+      right: calc(50% - 32px);
+    }
+  }
+
+  @keyframes jump {
+    0% {
+      transform: translateX(-50%) translateY(-50%) scaleX(-1);
+    }
+    40% {
+      transform: translateX(-50%) translateY(calc(-50% - 60px)) scaleX(-1);
+    }
+    100% {
+      transform: translateX(-50%) translateY(100vh) scaleX(-1);
+    }
+  }
+</style>
+
+<script>
+  const knight = document.getElementById('knight');
+  const intro = document.getElementById('knight-intro');
+
+  if (knight && intro) {
+    // Step 1: Knight walks in from right
+    setTimeout(() => {
+      knight.classList.add('walking');
+    }, 300);
+
+    // Step 2: Knight stops at center, turns to face user
+    setTimeout(() => {
+      knight.classList.remove('walking');
+      knight.classList.add('facing');
+    }, 2500);
+
+    // Step 3: Knight jumps
+    setTimeout(() => {
+      knight.classList.remove('facing');
+      knight.classList.add('jumping');
+    }, 3200);
+
+    // Step 4: Intro screen slides away, revealing content
+    setTimeout(() => {
+      intro.classList.add('done');
+    }, 3600);
+
+    // Step 5: Remove intro element from DOM
+    setTimeout(() => {
+      intro.remove();
+    }, 4500);
+  }
+</script>

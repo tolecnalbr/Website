@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- Simple pixelated knight silhouette -->
+  <rect x="12" y="2" width="8" height="8" fill="#1a1a1a"/><!-- head -->
+  <rect x="14" y="4" width="2" height="2" fill="#fafafa"/><!-- eye -->
+  <rect x="10" y="10" width="12" height="10" fill="#1a1a1a"/><!-- body -->
+  <rect x="6" y="12" width="4" height="2" fill="#1a1a1a"/><!-- sword -->
+  <rect x="10" y="20" width="4" height="8" fill="#1a1a1a"/><!-- left leg -->
+  <rect x="18" y="20" width="4" height="8" fill="#1a1a1a"/><!-- right leg -->
+  <rect x="8" y="0" width="4" height="4" fill="#1a1a1a"/><!-- helmet plume -->
+</svg>

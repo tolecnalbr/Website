@@ -1,10 +1,60 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import KnightAnimation from '../components/KnightAnimation.astro';
 ---
 
 <BaseLayout title="Lancelot">
-  <main class="container">
-    <h1>Lancelot</h1>
-    <p>Coming soon.</p>
+  <KnightAnimation />
+  <main class="container landing">
+    <section class="hero">
+      <h1>hi, i'm lancelot</h1>
+      <p>i'm learning about AI and sharing everything along the way.</p>
+      <nav class="hero-links">
+        <a href="/blog">read the blog</a>
+        <span class="separator">/</span>
+        <a href="/about">about me</a>
+        <span class="separator">/</span>
+        <a href="/questions">questions</a>
+      </nav>
+    </section>
   </main>
 </BaseLayout>
+
+<style>
+  .landing {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-links a {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .hero-links a:hover {
+    color: var(--color-text);
+  }
+
+  .separator {
+    margin: 0 0.5rem;
+    color: var(--color-border);
+  }
+</style>
