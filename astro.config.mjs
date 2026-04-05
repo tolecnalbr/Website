@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lancelot.dev',
+  site: 'https://tolecnalbr.github.io',
+  base: '/Website',
   integrations: [sitemap()],
 });
