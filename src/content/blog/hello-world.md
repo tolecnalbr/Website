@@ -5,8 +5,6 @@ date: 2026-04-05
 tags: ["intro"]
 ---
 
-# Hello World
-
 Welcome to my blog! I'm Lancelot, and I'm documenting my journey learning about AI.
 
 I'll be posting regular updates about what I'm learning, what tools I'm exploring, and what I'm building along the way.

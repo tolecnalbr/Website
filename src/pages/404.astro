@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Page not found — Lancelot" description="The page you're looking for doesn't exist.">
+  <main id="main-content" class="container">
+    <article class="not-found">
+      <h1>404</h1>
+      <p>The page you are looking for does not exist.</p>
+      <a href={base}>Go back home</a>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .not-found p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .not-found a {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .not-found a:hover {
+    color: var(--color-text);
+  }
+</style>

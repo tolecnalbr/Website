@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tolecnalbr.github.io',
-  base: '/Website',
+  base: '/Website/',
   integrations: [sitemap()],
 });

@@ -1,22 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KnightAnimation from '../components/KnightAnimation.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const latestPosts = posts.slice(0, 3);
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Lancelot">
   <KnightAnimation />
-  <main class="container landing">
+  <main id="main-content" class="container landing">
     <section class="hero">
-      <h1>hi, i'm lancelot</h1>
+      <h1>hi, i'm <span class="name-highlight">lancelot</span></h1>
       <p>i'm learning about AI and sharing everything along the way.</p>
       <nav class="hero-links">
-        <a href="/blog">read the blog</a>
+        <a href={`${base}blog`}>read the blog</a>
         <span class="separator">/</span>
-        <a href="/about">about me</a>
+        <a href={`${base}about`}>about me</a>
         <span class="separator">/</span>
-        <a href="/questions">questions</a>
+        <a href={`${base}questions`}>questions</a>
       </nav>
     </section>
+
+    {latestPosts.length > 0 && (
+      <section class="latest-posts">
+        <h2>Latest posts</h2>
+        {latestPosts.map(post => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+          />
+        ))}
+      </section>
+    )}
   </main>
 </BaseLayout>
 
@@ -24,6 +46,7 @@ import KnightAnimation from '../components/KnightAnimation.astro';
   .landing {
     min-height: 80vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -36,6 +59,10 @@ import KnightAnimation from '../components/KnightAnimation.astro';
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
+  }
+
+  .name-highlight {
+    color: #4466AA;
   }
 
   .hero p {
@@ -56,5 +83,17 @@ import KnightAnimation from '../components/KnightAnimation.astro';
   .separator {
     margin: 0 0.5rem;
     color: var(--color-border);
+  }
+
+  .latest-posts {
+    width: 100%;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .latest-posts h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 </style>

@@ -16,7 +16,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 ---
 
 <article class="post-card">
-  <a href={`/blog/${slug}`}>
+  <a href={`${import.meta.env.BASE_URL}blog/${slug}`}>
     <time datetime={date.toISOString()}>{formattedDate}</time>
     <h3>{title}</h3>
     <p>{description}</p>

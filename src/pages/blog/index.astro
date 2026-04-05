@@ -9,12 +9,13 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout title="Blog — Lancelot" description="Lancelot's AI learning blog posts">
-  <main class="container">
+  <main id="main-content" class="container">
     <header class="page-header">
       <h1>Blog</h1>
       <p>My AI learning journey, one post at a time.</p>
     </header>
     <section>
+      <h2 class="sr-only">All posts</h2>
       {posts.map(post => (
         <BlogPostCard
           title={post.data.title}
