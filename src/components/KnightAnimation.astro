@@ -3,156 +3,82 @@ const farmerSrc = `${import.meta.env.BASE_URL}knight-placeholder.svg`;
 ---
 
 <div id="farmer-intro" class="farmer-intro">
-  <!-- Crack SVG overlay - positioned at impact point (below farmer's feet at center) -->
-  <svg id="cracks" class="cracks" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-    <g id="crack-group-1" class="crack-group" opacity="0">
-      <line x1="200" y1="200" x2="175" y2="225" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="200" y1="200" x2="225" y2="220" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="200" y1="200" x2="190" y2="175" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="200" y1="200" x2="210" y2="230" stroke="#1a1a1a" stroke-width="1"/>
-    </g>
-    <g id="crack-group-2" class="crack-group" opacity="0">
-      <line x1="175" y1="225" x2="140" y2="260" stroke="#1a1a1a" stroke-width="2.5"/>
-      <line x1="225" y1="220" x2="265" y2="250" stroke="#1a1a1a" stroke-width="2.5"/>
-      <line x1="190" y1="175" x2="160" y2="140" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="200" y1="200" x2="240" y2="175" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="210" y1="230" x2="200" y2="270" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="200" y1="200" x2="165" y2="200" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="200" y1="200" x2="235" y2="195" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="140" y1="260" x2="100" y2="300" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="265" y1="250" x2="310" y2="290" stroke="#1a1a1a" stroke-width="2"/>
-      <line x1="160" y1="140" x2="120" y2="100" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="240" y1="175" x2="290" y2="140" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="200" y1="270" x2="180" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="165" y1="200" x2="110" y2="190" stroke="#1a1a1a" stroke-width="1.5"/>
-      <line x1="235" y1="195" x2="300" y2="180" stroke="#1a1a1a" stroke-width="1.5"/>
-    </g>
-  </svg>
-
-  <!-- Screen fragments for shatter effect -->
-  <div id="fragments" class="fragments" style="display:none;">
-    <div class="fragment fragment-tl"></div>
-    <div class="fragment fragment-tr"></div>
-    <div class="fragment fragment-bl"></div>
-    <div class="fragment fragment-br"></div>
-    <div class="fragment fragment-ml"></div>
-    <div class="fragment fragment-mr"></div>
-  </div>
-
-  <!-- Inline SVG farmer for leg animation -->
   <div id="farmer" class="farmer">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 48" width="96" height="144" style="image-rendering: pixelated;">
-      <!-- Upper body group (for swing animation) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="72" height="96" style="image-rendering: pixelated;">
+      <!-- Pixel art farmer SIDE PROFILE - facing left -->
+
       <g id="farmer-upper">
         <!-- === HAT === -->
-        <rect x="6" y="3" width="14" height="1" fill="#C4983E"/>
-        <rect x="5" y="4" width="16" height="1" fill="#D4A857"/>
-        <rect x="9" y="0" width="8" height="1" fill="#C4983E"/>
-        <rect x="8" y="1" width="10" height="1" fill="#D4A857"/>
-        <rect x="8" y="2" width="10" height="1" fill="#D4A857"/>
-        <rect x="7" y="3" width="12" height="1" fill="#C4983E"/>
-        <rect x="8" y="3" width="10" height="1" fill="#8B6914"/>
+        <rect x="2" y="1" width="12" height="1" fill="#D4A857"/>
+        <rect x="3" y="0" width="8" height="1" fill="#C4983E"/>
+        <rect x="5" y="0" width="6" height="1" fill="#D4A857"/>
+        <rect x="4" y="1" width="8" height="1" fill="#8B6914"/>
 
         <!-- === HAIR === -->
-        <rect x="8" y="5" width="1" height="2" fill="#2C1810"/>
-        <rect x="17" y="5" width="1" height="2" fill="#2C1810"/>
-        <rect x="8" y="7" width="1" height="1" fill="#2C1810"/>
-        <rect x="17" y="7" width="1" height="1" fill="#2C1810"/>
+        <rect x="11" y="2" width="2" height="3" fill="#2C1810"/>
+        <rect x="4" y="2" width="1" height="2" fill="#2C1810"/>
 
-        <!-- === FACE === -->
-        <rect x="9" y="5" width="8" height="1" fill="#E8B88A"/>
-        <rect x="9" y="6" width="8" height="1" fill="#E8B88A"/>
-        <rect x="9" y="7" width="8" height="1" fill="#E8B88A"/>
-        <rect x="9" y="8" width="8" height="1" fill="#E8B88A"/>
-        <rect x="10" y="9" width="6" height="1" fill="#E8B88A"/>
-        <rect x="10" y="6" width="2" height="1" fill="#1a1a1a"/>
-        <rect x="14" y="6" width="2" height="1" fill="#1a1a1a"/>
-        <rect x="11" y="8" width="4" height="1" fill="#C4946A"/>
+        <!-- === HEAD === -->
+        <rect x="5" y="2" width="6" height="1" fill="#E8B88A"/>
+        <rect x="4" y="3" width="7" height="1" fill="#E8B88A"/>
+        <rect x="3" y="4" width="8" height="1" fill="#E8B88A"/>
+        <rect x="4" y="5" width="7" height="1" fill="#E8B88A"/>
+        <rect x="5" y="6" width="5" height="1" fill="#E8B88A"/>
+        <rect x="5" y="3" width="2" height="1" fill="#1a1a1a"/>
+        <rect x="3" y="4" width="1" height="1" fill="#D4A070"/>
+        <rect x="4" y="5" width="1" height="1" fill="#C4946A"/>
 
-        <!-- === HAY STRAW === -->
-        <rect x="4" y="8" width="1" height="1" fill="#D4A857"/>
-        <rect x="5" y="8" width="1" height="1" fill="#D4A857"/>
-        <rect x="6" y="8" width="1" height="1" fill="#C4983E"/>
-        <rect x="7" y="8" width="1" height="1" fill="#C4983E"/>
-        <rect x="8" y="8" width="1" height="1" fill="#C4983E"/>
-        <rect x="9" y="8" width="1" height="1" fill="#D4A857"/>
+        <!-- === STRAW === -->
+        <rect x="0" y="5" width="4" height="1" fill="#D4A857"/>
 
         <!-- === NECK === -->
-        <rect x="12" y="10" width="2" height="1" fill="#E8B88A"/>
+        <rect x="7" y="7" width="3" height="1" fill="#E8B88A"/>
 
         <!-- === SHIRT === -->
-        <rect x="10" y="11" width="6" height="1" fill="#E8C840"/>
-        <rect x="10" y="12" width="6" height="1" fill="#D4B030"/>
-        <rect x="8" y="11" width="2" height="1" fill="#E8C840"/>
-        <rect x="16" y="11" width="2" height="1" fill="#E8C840"/>
+        <rect x="6" y="8" width="5" height="1" fill="#E8C840"/>
+        <rect x="6" y="9" width="5" height="1" fill="#D4B030"/>
 
-        <!-- === OVERALLS === -->
-        <rect x="10" y="12" width="2" height="1" fill="#4466AA"/>
-        <rect x="14" y="12" width="2" height="1" fill="#4466AA"/>
-        <rect x="10" y="13" width="6" height="1" fill="#4466AA"/>
-        <rect x="9" y="14" width="8" height="1" fill="#4466AA"/>
-        <rect x="9" y="15" width="8" height="1" fill="#3355AA"/>
-        <rect x="9" y="16" width="8" height="1" fill="#4466AA"/>
-        <rect x="9" y="17" width="8" height="1" fill="#3355AA"/>
-        <rect x="11" y="14" width="3" height="2" fill="#3355AA"/>
-        <rect x="12" y="14" width="1" height="1" fill="#2244AA"/>
-        <rect x="10" y="13" width="1" height="1" fill="#D4B030"/>
-        <rect x="15" y="13" width="1" height="1" fill="#D4B030"/>
-
-        <!-- === ARMS === -->
-        <rect x="7" y="12" width="2" height="1" fill="#E8C840"/>
-        <rect x="6" y="13" width="2" height="1" fill="#E8C840"/>
-        <rect x="5" y="14" width="2" height="2" fill="#E8C840"/>
-        <rect x="5" y="16" width="2" height="1" fill="#E8B88A"/>
-        <rect x="5" y="17" width="2" height="1" fill="#E8B88A"/>
-        <rect x="17" y="12" width="2" height="1" fill="#E8C840"/>
-        <rect x="18" y="13" width="2" height="2" fill="#E8C840"/>
-        <rect x="18" y="15" width="2" height="1" fill="#E8B88A"/>
+        <!-- === ARM === -->
+        <rect x="4" y="8" width="2" height="1" fill="#E8C840"/>
+        <rect x="3" y="9" width="2" height="1" fill="#E8C840"/>
+        <rect x="3" y="10" width="2" height="1" fill="#E8B88A"/>
 
         <!-- === PICKAXE === -->
-        <g id="pickaxe">
-          <rect x="5" y="18" width="1" height="1" fill="#8B4513"/>
-          <rect x="4" y="19" width="1" height="1" fill="#8B4513"/>
-          <rect x="4" y="20" width="1" height="1" fill="#6B3410"/>
-          <rect x="3" y="21" width="1" height="1" fill="#6B3410"/>
-          <rect x="3" y="22" width="1" height="1" fill="#8B4513"/>
-          <rect x="2" y="23" width="1" height="1" fill="#8B4513"/>
-          <rect x="2" y="24" width="1" height="1" fill="#6B3410"/>
-          <rect x="0" y="25" width="1" height="1" fill="#888888"/>
-          <rect x="1" y="25" width="1" height="1" fill="#AAAAAA"/>
-          <rect x="2" y="25" width="1" height="1" fill="#999999"/>
-          <rect x="3" y="25" width="1" height="1" fill="#AAAAAA"/>
-          <rect x="4" y="25" width="1" height="1" fill="#888888"/>
-          <rect x="0" y="26" width="1" height="1" fill="#777777"/>
-          <rect x="4" y="26" width="1" height="1" fill="#777777"/>
-          <rect x="0" y="24" width="1" height="1" fill="#666666"/>
-          <rect x="5" y="26" width="1" height="1" fill="#666666"/>
-        </g>
+        <rect x="2" y="11" width="1" height="1" fill="#8B4513"/>
+        <rect x="1" y="12" width="1" height="1" fill="#8B4513"/>
+        <rect x="1" y="13" width="1" height="1" fill="#6B3410"/>
+        <rect x="0" y="14" width="1" height="1" fill="#6B3410"/>
+        <rect x="0" y="15" width="3" height="1" fill="#888"/>
+        <rect x="0" y="16" width="1" height="1" fill="#777"/>
+        <rect x="2" y="16" width="1" height="1" fill="#777"/>
+
+        <!-- === OVERALLS === -->
+        <rect x="6" y="10" width="5" height="1" fill="#4466AA"/>
+        <rect x="6" y="11" width="5" height="1" fill="#3355AA"/>
+        <rect x="6" y="12" width="5" height="1" fill="#4466AA"/>
+        <rect x="6" y="13" width="5" height="1" fill="#3355AA"/>
+        <rect x="7" y="9" width="1" height="1" fill="#4466AA"/>
+        <rect x="7" y="11" width="2" height="1" fill="#2244AA"/>
       </g>
 
-      <!-- === LEGS (separate groups for walk animation) === -->
-      <g id="leg-left" class="leg-left">
-        <rect x="9" y="18" width="3" height="1" fill="#4466AA"/>
-        <rect x="9" y="19" width="3" height="1" fill="#3355AA"/>
-        <rect x="9" y="20" width="3" height="1" fill="#4466AA"/>
-        <rect x="9" y="21" width="3" height="1" fill="#3355AA"/>
-        <rect x="8" y="22" width="4" height="1" fill="#555555"/>
-        <rect x="7" y="23" width="5" height="1" fill="#444444"/>
-        <rect x="7" y="24" width="5" height="1" fill="#333333"/>
-      </g>
-
+      <!-- === LEGS === -->
       <g id="leg-right" class="leg-right">
-        <rect x="14" y="18" width="3" height="1" fill="#4466AA"/>
-        <rect x="14" y="19" width="3" height="1" fill="#3355AA"/>
-        <rect x="14" y="20" width="3" height="1" fill="#4466AA"/>
-        <rect x="14" y="21" width="3" height="1" fill="#3355AA"/>
-        <rect x="14" y="22" width="4" height="1" fill="#555555"/>
-        <rect x="14" y="23" width="5" height="1" fill="#444444"/>
-        <rect x="14" y="24" width="5" height="1" fill="#333333"/>
+        <rect x="8" y="14" width="3" height="1" fill="#3355AA"/>
+        <rect x="8" y="15" width="3" height="1" fill="#4466AA"/>
+        <rect x="8" y="16" width="3" height="1" fill="#3355AA"/>
+        <rect x="8" y="17" width="3" height="1" fill="#3355AA"/>
+        <rect x="7" y="18" width="4" height="1" fill="#555"/>
+        <rect x="6" y="19" width="5" height="1" fill="#444"/>
       </g>
 
-      <!-- Leg gap fill -->
-      <rect x="12" y="18" width="2" height="4" fill="#2244AA"/>
+      <g id="leg-left" class="leg-left">
+        <rect x="6" y="14" width="3" height="1" fill="#4466AA"/>
+        <rect x="6" y="15" width="3" height="1" fill="#3355AA"/>
+        <rect x="6" y="16" width="3" height="1" fill="#4466AA"/>
+        <rect x="6" y="17" width="3" height="1" fill="#3355AA"/>
+        <rect x="5" y="18" width="4" height="1" fill="#555"/>
+        <rect x="4" y="19" width="5" height="1" fill="#444"/>
+      </g>
     </svg>
   </div>
 </div>
@@ -170,45 +96,22 @@ const farmerSrc = `${import.meta.env.BASE_URL}knight-placeholder.svg`;
     justify-content: center;
     z-index: 1000;
     overflow: hidden;
-  }
-
-  .farmer-intro.shaking {
-    animation: screenShake 0.15s ease-in-out;
-  }
-
-  .farmer-intro.shaking2 {
-    animation: screenShake2 0.2s ease-in-out;
+    transition: opacity 0.6s ease;
   }
 
   .farmer-intro.fade-out {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
   }
 
-  /* === CRACKS === */
-  .cracks {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    z-index: 5;
-    pointer-events: none;
-    /* Positioned at impact point - below farmer center, set via JS */
-  }
-
-  .crack-group {
-    transition: opacity 0.1s ease;
-  }
-
-  /* === FARMER === */
   .farmer {
     position: absolute;
-    right: -120px;
+    right: -100px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 96px;
-    height: 144px;
+    width: 72px;
+    height: 96px;
     image-rendering: pixelated;
   }
 
@@ -218,39 +121,35 @@ const farmerSrc = `${import.meta.env.BASE_URL}knight-placeholder.svg`;
     image-rendering: pixelated;
   }
 
-  /* === WALK ANIMATION === */
+  /* === WALK (profile, legs alternate) === */
   .farmer.walking {
-    animation: walkIn 3.5s ease-out forwards;
+    animation: walkIn 3s ease-out forwards;
   }
 
   .farmer.walking .leg-left {
-    animation: legWalkLeft 0.4s steps(1) infinite;
+    animation: legFront 0.35s steps(1) infinite;
   }
 
   .farmer.walking .leg-right {
-    animation: legWalkRight 0.4s steps(1) infinite;
+    animation: legBack 0.35s steps(1) infinite;
   }
 
-  @keyframes legWalkLeft {
-    0% { transform: translate(1px, -1px); }
-    50% { transform: translate(-1px, 0px); }
+  @keyframes legFront {
+    0%   { transform: translateX(2px); }
+    50%  { transform: translateX(-2px); }
   }
 
-  @keyframes legWalkRight {
-    0% { transform: translate(-1px, 0px); }
-    50% { transform: translate(1px, -1px); }
+  @keyframes legBack {
+    0%   { transform: translateX(-2px); }
+    50%  { transform: translateX(2px); }
   }
 
   @keyframes walkIn {
-    0% {
-      right: -120px;
-    }
-    100% {
-      right: calc(50% - 48px);
-    }
+    0%   { right: -100px; }
+    100% { right: calc(50% - 36px); }
   }
 
-  /* === AT CENTER === */
+  /* === STOPPED AT CENTER (still profile) === */
   .farmer.at-center {
     animation: none;
     right: auto;
@@ -264,310 +163,82 @@ const farmerSrc = `${import.meta.env.BASE_URL}knight-placeholder.svg`;
     transform: none;
   }
 
-  /* === DIG / SWING ANIMATIONS === */
-  .farmer.swing1 {
+  /* === FACING USER (turn toward viewer) === */
+  .farmer.facing {
+    animation: none;
     right: auto;
     left: 50%;
-    animation: pickaxeSwing1 0.8s ease-in-out forwards;
-    transform-origin: 50% 100%;
+    transform: translateX(-50%) translateY(-50%) scaleX(-1);
   }
 
-  .farmer.swing2 {
-    right: auto;
-    left: 50%;
-    animation: pickaxeSwing2 0.8s ease-in-out forwards;
-    transform-origin: 50% 100%;
-  }
-
-  .farmer.swing1 .leg-left,
-  .farmer.swing1 .leg-right,
-  .farmer.swing2 .leg-left,
-  .farmer.swing2 .leg-right {
+  .farmer.facing .leg-left,
+  .farmer.facing .leg-right {
     animation: none;
     transform: none;
   }
 
-  @keyframes pickaxeSwing1 {
-    0% {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    }
-    35% {
-      transform: translateX(-50%) translateY(-50%) rotate(25deg);
-    }
-    55% {
-      transform: translateX(-50%) translateY(-50%) rotate(25deg);
-    }
-    75% {
-      transform: translateX(-50%) translateY(-50%) rotate(-5deg);
-    }
-    100% {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    }
-  }
-
-  @keyframes pickaxeSwing2 {
-    0% {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    }
-    30% {
-      transform: translateX(-50%) translateY(-50%) rotate(35deg);
-    }
-    50% {
-      transform: translateX(-50%) translateY(-50%) rotate(35deg);
-    }
-    70% {
-      transform: translateX(-50%) translateY(-50%) rotate(-8deg);
-    }
-    100% {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    }
-  }
-
-  .farmer.falling {
+  /* === JUMP === */
+  .farmer.jumping {
     right: auto;
     left: 50%;
-    animation: farmerFall 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
+    animation: jump 0.9s cubic-bezier(0.4, 0, 1, 1) forwards;
   }
 
-  .farmer.falling .leg-left,
-  .farmer.falling .leg-right {
+  .farmer.jumping .leg-left,
+  .farmer.jumping .leg-right {
     animation: none;
     transform: none;
   }
 
-  @keyframes farmerFall {
+  @keyframes jump {
     0% {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+      transform: translateX(-50%) translateY(-50%) scaleX(-1);
+      opacity: 1;
+    }
+    25% {
+      transform: translateX(-50%) translateY(calc(-50% - 100px)) scaleX(-1);
       opacity: 1;
     }
     100% {
-      transform: translateX(-50%) translateY(100vh) rotate(10deg);
+      transform: translateX(-50%) translateY(100vh) scaleX(-1);
       opacity: 0;
     }
-  }
-
-  /* === SCREEN SHAKE === */
-  @keyframes screenShake {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(-4px, 3px); }
-    40% { transform: translate(4px, -2px); }
-    60% { transform: translate(-3px, 2px); }
-    80% { transform: translate(3px, -1px); }
-    100% { transform: translate(0, 0); }
-  }
-
-  @keyframes screenShake2 {
-    0% { transform: translate(0, 0); }
-    15% { transform: translate(-8px, 6px); }
-    30% { transform: translate(7px, -5px); }
-    45% { transform: translate(-6px, 4px); }
-    60% { transform: translate(5px, -3px); }
-    75% { transform: translate(-3px, 2px); }
-    100% { transform: translate(0, 0); }
-  }
-
-  /* === FRAGMENTS FOR SHATTER === */
-  .fragments {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    pointer-events: none;
-  }
-
-  .fragment {
-    position: absolute;
-    background-color: var(--color-bg, #fafafa);
-    border: 1px solid rgba(26, 26, 26, 0.1);
-  }
-
-  .fragment-tl {
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: bottom right;
-  }
-
-  .fragment-tr {
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: bottom left;
-  }
-
-  .fragment-bl {
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: top right;
-  }
-
-  .fragment-br {
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: top left;
-  }
-
-  .fragment-ml {
-    top: 25%;
-    left: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: center right;
-  }
-
-  .fragment-mr {
-    top: 25%;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    transform-origin: center left;
-  }
-
-  .fragment.shattering {
-    animation: shatterPiece 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-
-  .fragment-tl.shattering {
-    animation: shatterTL 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-  .fragment-tr.shattering {
-    animation: shatterTR 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-  .fragment-bl.shattering {
-    animation: shatterBL 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-  .fragment-br.shattering {
-    animation: shatterBR 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-  .fragment-ml.shattering {
-    animation: shatterML 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-  .fragment-mr.shattering {
-    animation: shatterMR 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-
-  @keyframes shatterTL {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(-60vw, -60vh) rotate(-25deg); opacity: 0; }
-  }
-  @keyframes shatterTR {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(60vw, -60vh) rotate(20deg); opacity: 0; }
-  }
-  @keyframes shatterBL {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(-50vw, 60vh) rotate(15deg); opacity: 0; }
-  }
-  @keyframes shatterBR {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(50vw, 60vh) rotate(-18deg); opacity: 0; }
-  }
-  @keyframes shatterML {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(-70vw, 20vh) rotate(-12deg); opacity: 0; }
-  }
-  @keyframes shatterMR {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-    100% { transform: translate(70vw, -20vh) rotate(14deg); opacity: 0; }
   }
 </style>
 
 <script>
   const farmer = document.getElementById('farmer');
   const intro = document.getElementById('farmer-intro');
-  const cracks = document.getElementById('cracks');
-  const fragments = document.getElementById('fragments');
 
   if (farmer && intro && !sessionStorage.getItem('knight-intro-seen')) {
     sessionStorage.setItem('knight-intro-seen', 'true');
 
-    // Position cracks at impact point (below farmer's feet at center)
-    function positionCracks() {
-      if (!cracks) return;
-      const cx = window.innerWidth / 2;
-      const cy = (window.innerHeight / 2) + 72; // bottom of farmer sprite
-      cracks.style.left = (cx - 200) + 'px';
-      cracks.style.top = (cy - 200) + 'px';
-    }
-    positionCracks();
+    // Step 1: Walk in from right (profile view, legs animated)
+    setTimeout(() => farmer.classList.add('walking'), 300);
 
-    // Step 1: Farmer walks in from right (start after brief delay)
-    setTimeout(() => {
-      farmer.classList.add('walking');
-    }, 300);
-
-    // Step 2: Farmer arrives at center
-    const walkEnd = 300 + 3500;
+    // Step 2: Arrive at center, stop
     setTimeout(() => {
       farmer.classList.remove('walking');
       farmer.classList.add('at-center');
-    }, walkEnd);
+    }, 3300);
 
-    // Step 3: First dig - pickaxe swing
-    const dig1Start = walkEnd + 400;
+    // Step 3: Turn to face the user
     setTimeout(() => {
       farmer.classList.remove('at-center');
-      farmer.classList.add('swing1');
-    }, dig1Start);
+      farmer.classList.add('facing');
+    }, 4000);
 
-    // First dig impact
-    const dig1Impact = dig1Start + 350;
+    // Step 4: Jump up and fall off screen
     setTimeout(() => {
-      const cg1 = document.getElementById('crack-group-1');
-      if (cg1) cg1.setAttribute('opacity', '1');
-      intro.classList.add('shaking');
-      setTimeout(() => intro.classList.remove('shaking'), 150);
-    }, dig1Impact);
+      farmer.classList.remove('facing');
+      farmer.classList.add('jumping');
+    }, 4800);
 
-    // Step 4: Second dig - bigger swing
-    const dig2Start = dig1Start + 900;
-    setTimeout(() => {
-      farmer.classList.remove('swing1');
-      void farmer.offsetWidth;
-      farmer.classList.add('swing2');
-    }, dig2Start);
+    // Step 5: Fade out intro
+    setTimeout(() => intro.classList.add('fade-out'), 5300);
 
-    // Second dig impact
-    const dig2Impact = dig2Start + 320;
-    setTimeout(() => {
-      const cg2 = document.getElementById('crack-group-2');
-      if (cg2) cg2.setAttribute('opacity', '1');
-      intro.classList.add('shaking2');
-      setTimeout(() => intro.classList.remove('shaking2'), 200);
-    }, dig2Impact);
-
-    // Step 5: Screen shatters - fragments fly, farmer falls
-    const shatterStart = dig2Start + 900;
-    setTimeout(() => {
-      farmer.classList.remove('swing2');
-      farmer.classList.add('falling');
-      if (cracks) cracks.style.display = 'none';
-
-      // Hide the intro background and show fragments
-      intro.style.backgroundColor = 'transparent';
-      if (fragments) {
-        fragments.style.display = 'block';
-        const frags = fragments.querySelectorAll('.fragment');
-        frags.forEach(f => f.classList.add('shattering'));
-      }
-    }, shatterStart);
-
-    // Step 6: Remove intro from DOM
-    setTimeout(() => {
-      intro.classList.add('fade-out');
-    }, shatterStart + 700);
-
-    setTimeout(() => {
-      intro.remove();
-    }, shatterStart + 1000);
+    // Step 6: Remove from DOM
+    setTimeout(() => intro.remove(), 5900);
 
   } else if (intro) {
     intro.remove();

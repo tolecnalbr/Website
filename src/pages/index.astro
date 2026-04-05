@@ -1,22 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KnightAnimation from '../components/KnightAnimation.astro';
-import BlogPostCard from '../components/BlogPostCard.astro';
-import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
-const latestPosts = posts.slice(0, 3);
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Lancelot">
   <KnightAnimation />
-  <main id="main-content" class="container landing">
-    <section class="hero">
+  <main id="main-content">
+    <section class="hero container">
       <h1>hi, i'm <span class="name-highlight">lancelot</span></h1>
       <p>i'm learning about AI and sharing everything along the way.</p>
+
       <nav class="hero-links">
         <a href={`${base}blog`}>read the blog</a>
         <span class="separator">/</span>
@@ -24,34 +19,27 @@ const base = import.meta.env.BASE_URL;
         <span class="separator">/</span>
         <a href={`${base}questions`}>questions</a>
       </nav>
+
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/lancelotbrun/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:lancelot.brun@gmail.com" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
     </section>
 
-    {latestPosts.length > 0 && (
-      <section class="latest-posts">
-        <h2>Latest posts</h2>
-        {latestPosts.map(post => (
-          <BlogPostCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            slug={post.id}
-          />
-        ))}
-      </section>
-    )}
   </main>
 </BaseLayout>
 
 <style>
-  .landing {
-    min-height: 80vh;
+  .hero {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  .hero {
     text-align: center;
   }
 
@@ -62,7 +50,8 @@ const base = import.meta.env.BASE_URL;
   }
 
   .name-highlight {
-    color: #4466AA;
+    background: linear-gradient(180deg, transparent 50%, rgba(255, 243, 0, 0.45) 50%, rgba(255, 243, 0, 0.45) 88%, transparent 88%);
+    padding: 0 0.1em;
   }
 
   .hero p {
@@ -85,15 +74,20 @@ const base = import.meta.env.BASE_URL;
     color: var(--color-border);
   }
 
-  .latest-posts {
-    width: 100%;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
 
-  .latest-posts h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+  .social-icons a {
+    color: var(--color-text-light);
+    transition: color 0.15s;
   }
+
+  .social-icons a:hover {
+    color: var(--color-text);
+  }
+
 </style>
