@@ -11,7 +11,7 @@ const links = [
 ---
 
 <nav>
-  <div class="nav-inner container">
+  <div class="nav-inner">
     <a href={base} class="nav-logo">lancelot</a>
     <ul class="nav-links">
       {links.map(link => (
@@ -31,12 +31,17 @@ const links = [
 <style>
   nav {
     padding: 1.5rem 0;
+    background-color: #f2f2f2;
   }
 
   .nav-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
   }
 
   .nav-logo {
